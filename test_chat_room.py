@@ -43,7 +43,12 @@ class TestChatRoom(unittest.TestCase):
     def test_search_messages_by_pattern(self):
         messages = self.chat_room.search_messages_by_pattern(r"\bHi\b")
         self.assertEqual(len(messages), 1)
-
+    def test_private_messages(self):
+        private_message = self.chat_room.post_message(self.user1, "This is a private message", recipient=self.user2)
+        self.assertIsNotNone(private_message.recipient)
+        self.assertEqual(private_message.recipient, self.user2)
+        private_messages = self.chat_room.get_private_messages(self.user1, self.user2)
+        self.assertEqual(len(private_messages), 1)
 if __name__ == '__main__':
     unittest.main()
 
