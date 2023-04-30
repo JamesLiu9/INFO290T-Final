@@ -52,3 +52,10 @@ class ChatRoom:
 
     def get_private_messages(self, user1, user2):
         return [msg for msg in self.messages if (msg.user == user1 and msg.recipient == user2) or (msg.user == user2 and msg.recipient == user1)]
+
+    def get_messages_in_date_range(self, start_date, end_date):
+        messages_in_range = []
+        for message in self.messages:
+            if start_date <= message.timestamp <= end_date:
+                messages_in_range.append(message)
+        return messages_in_range
