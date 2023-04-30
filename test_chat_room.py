@@ -22,7 +22,6 @@ class TestChatRoom(unittest.TestCase):
         user_count = len(self.chat_room.users)
         self.assertEqual(user_count, 2)
 
-    # Add other tests here with the same indentation as the first test
 
 if __name__ == '__main__':
     unittest.main()
