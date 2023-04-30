@@ -1,5 +1,6 @@
 import unittest
 from chat_room import ChatRoom, User
+from datetime import datetime, timedelta
 
 
 class TestChatRoom(unittest.TestCase):
@@ -58,10 +59,11 @@ class TestChatRoom(unittest.TestCase):
         self.assertEqual(len(messages), 1)
 
     def test_get_messages_in_date_range(self):
-        start_date = datetime.datetime.now() - datetime.timedelta(days=1)
-        end_date = datetime.datetime.now() + datetime.timedelta(days=1)
-        messages = self.chat_room.get_messages_in_date_range(start_date, end_date)
-        self.assertEqual(len(messages), 4)
+        start_date = datetime.now() - timedelta(days=1)
+        end_date = datetime.now() + timedelta(days=1)
+        messages_in_range = self.chat_room.get_messages_in_date_range(start_date, end_date)
+        self.assertEqual(len(messages_in_range), 4)
+
 
 if __name__ == '__main__':
     unittest.main()
