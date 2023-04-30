@@ -40,6 +40,9 @@ class TestChatRoom(unittest.TestCase):
     def test_search_messages_by_keyword(self):
         messages = self.chat_room.search_messages_by_keyword("How")
         self.assertEqual(len(messages), 2)
+    def test_search_messages_by_pattern(self):
+        messages = self.chat_room.search_messages_by_pattern(r"\bHi\b")
+        self.assertEqual(len(messages), 1)
 
 if __name__ == '__main__':
     unittest.main()
