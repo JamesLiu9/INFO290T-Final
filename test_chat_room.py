@@ -34,6 +34,10 @@ class TestChatRoom(unittest.TestCase):
         message_count = len(self.chat_room.messages)
         self.assertEqual(message_count, 3)
 
+    def test_search_messages_by_user(self):
+        messages = self.chat_room.search_messages_by_user(self.user1)
+        self.assertEqual(len(messages), 2)
+        
 
 if __name__ == '__main__':
     unittest.main()
