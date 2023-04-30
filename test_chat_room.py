@@ -28,6 +28,8 @@ class TestChatRoom(unittest.TestCase):
         message = self.chat_room.messages[0]
         self.chat_room.edit_message(message, "Hello, everyone! I'm back!")
         self.assertEqual(message.content, "Hello, everyone! I'm back!")
+
+
 if __name__ == '__main__':
     unittest.main()
 
