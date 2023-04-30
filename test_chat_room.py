@@ -49,6 +49,15 @@ class TestChatRoom(unittest.TestCase):
         self.assertEqual(private_message.recipient, self.user2)
         private_messages = self.chat_room.get_private_messages(self.user1, self.user2)
         self.assertEqual(len(private_messages), 1)
+        
+    def test_group_message(self):
+        user3 = self.chat_room.add_user("Charlie")
+        group_message = self.chat_room.post_message(self.user1, "Hello, Bob and Charlie!", recipient=None)
+        self.assertIsNone(group_message.recipient)
+        messages = self.chat_room.search_messages_by_keyword("Charlie")
+        self.assertEqual(len(messages), 1)
+
+
 if __name__ == '__main__':
     unittest.main()
 
