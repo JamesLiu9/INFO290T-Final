@@ -24,7 +24,10 @@ class TestChatRoom(unittest.TestCase):
     def test_post_message(self):
         message_count = len(self.chat_room.messages)
         self.assertEqual(message_count, 4)
-
+    def test_edit_message(self):
+        message = self.chat_room.messages[0]
+        self.chat_room.edit_message(message, "Hello, everyone! I'm back!")
+        self.assertEqual(message.content, "Hello, everyone! I'm back!")
 if __name__ == '__main__':
     unittest.main()
 
