@@ -21,7 +21,9 @@ class TestChatRoom(unittest.TestCase):
         self.chat_room.remove_user(user3)
         user_count = len(self.chat_room.users)
         self.assertEqual(user_count, 2)
-
+    def test_post_message(self):
+        message_count = len(self.chat_room.messages)
+        self.assertEqual(message_count, 4)
 
 if __name__ == '__main__':
     unittest.main()
