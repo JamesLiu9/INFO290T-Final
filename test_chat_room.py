@@ -11,7 +11,8 @@ class TestChatRoom(unittest.TestCase):
         self.chat_room.post_message(self.user2, "Hi, Alice!")
         self.chat_room.post_message(self.user1, "How are you, Bob?")
         self.chat_room.post_message(self.user2, "I'm doing great! How about you?")
-   def test_add_and_remove_user(self):
+
+    def test_add_and_remove_user(self):
         user_count = len(self.chat_room.users)
         self.assertEqual(user_count, 2)
         user3 = self.chat_room.add_user("Charlie")
@@ -20,6 +21,9 @@ class TestChatRoom(unittest.TestCase):
         self.chat_room.remove_user(user3)
         user_count = len(self.chat_room.users)
         self.assertEqual(user_count, 2)
+
+    # Add other tests here with the same indentation as the first test
+
 if __name__ == '__main__':
     unittest.main()
 
